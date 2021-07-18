@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/talkingRobot2.iml" filepath="$PROJECT_DIR$/.idea/talkingRobot2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/stt_tts_iesb2020.iml" filepath="$PROJECT_DIR$/.idea/stt_tts_iesb2020.iml" />
     </modules>
   </component>
 </project>
