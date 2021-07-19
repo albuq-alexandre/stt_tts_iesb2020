@@ -1,5 +1,5 @@
 import json
-
+import os
 from flask import Flask
 from flask import request
 from flask import render_template
@@ -8,7 +8,7 @@ from ibm_watson import SpeechToTextV1
 
 
 # initialize speech to text service
-authenticator = IAMAuthenticator('ktHgLE9F0DAj75fb-jJC40ldUsz9jTAoJ9YsmXuU4ide')
+authenticator = IAMAuthenticator(os.environ['sttkey']')
 speech_to_text = SpeechToTextV1(
     authenticator=authenticator
 )
