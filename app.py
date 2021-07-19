@@ -8,7 +8,7 @@ from ibm_watson import SpeechToTextV1
 
 
 # initialize speech to text service
-authenticator = IAMAuthenticator(os.environ['sttkey']')
+authenticator = IAMAuthenticator(os.environ['sttkey'])
 speech_to_text = SpeechToTextV1(
     authenticator=authenticator
 )
