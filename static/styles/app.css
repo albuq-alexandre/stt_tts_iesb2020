@@ -34,6 +34,19 @@ canvas {
   display: block;
   margin-bottom: 0.5rem;
 }
+textingDiv {
+  width: 100%
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+textarea
+{
+  border:1px solid #999999;
+  width:100%;
+  margin:5px 0;
+  padding:3px;
+}
 
 #buttons {
   display: flex;
@@ -46,6 +59,8 @@ canvas {
   padding: 1rem;
   width: calc(50% - 0.25rem);
 }
+
+
 
 button {
   font-size: 1rem;
@@ -111,6 +126,20 @@ button.stt {
 }
 /* Checkbox hack to control information box display */
 
+label#txtLabel {
+  font-size: 1rem;
+  top: 0px;
+  right: 0px;
+  bottom: 6px;
+  padding: 3px;
+  z-index: 5;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+
 label {
   font-size: 3rem;
   position: absolute;
@@ -169,3 +198,4 @@ input[type=checkbox]:checked ~ aside {
     margin: 0 auto;
   }
 }
+
