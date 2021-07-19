@@ -8,8 +8,10 @@ from ibm_watson import SpeechToTextV1, TextToSpeechV1
 
 
 # initialize speech to text service
+
 authenticator = IAMAuthenticator(os.environ['STTKEY'])
 authenticator2 = IAMAuthenticator(os.environ['TTSKEY'])
+
 speech_to_text = SpeechToTextV1(
     authenticator=authenticator
 )
