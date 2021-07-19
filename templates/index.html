@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>IESB - Pós IA - Turma IANA2020 - Interfaces para processamento de Áudio</title>
+    <title>IESB - Pós IA - Turma IANA2020 - Interfaces para processamento de Áudio e Texto</title>
     <link href="/static/styles/app.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -11,15 +11,25 @@
     <div class="wrapper">
 
       <header>
-        <h1>IBM Cloud STT - Interface para processamento de Áudio</h1>
+        <h1>IBM Cloud STT/TTS - Interface para processamento de Áudio e Texto</h1>
       </header>
 
       <section class="main-controls">
+        <div id="canvasDiv">
         <canvas class="visualizer" height="60px"></canvas>
+        </div>
+        <div id="textingDiv">
+           <label for="textingTXT" id="txtLabel">Texto para conversão em Voz:</label><br>
+          <textarea id="textingTXT" placeholder="Lembre-se, seja gentil!" width=100% rows="5"></textarea>
+        </div>
         <div id="buttons">
           <button class="record">Gravar</button>
-          <button class="stop">Parar</button>
+          &nbsp;
+          <button class="texting">Digitar</button>
+          &nbsp;
+          <button class="stop">Converter em Texto ou Voz</button>
         </div>
+
       </section>
 
       <section class="sound-clips">
@@ -29,7 +39,7 @@
 
     </div>
 
-    <label for="toggle">❔</label>
+    <label for="toggle" class="toggle">❔</label>
     <input type="checkbox" id="toggle">
     <aside>
       <h2>Information</h2>

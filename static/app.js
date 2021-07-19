@@ -2,14 +2,17 @@
 
 const record = document.querySelector('.record');
 const stop = document.querySelector('.stop');
+const texting = document.querySelector('.texting');
 const soundClips = document.querySelector('.sound-clips');
 const canvas = document.querySelector('.visualizer');
 const mainSection = document.querySelector('.main-controls');
-
+const textingTXT = document.querySelector('textingTXT');
+const txtDiv = document.querySelector('.textingDiv');
+var tipo;
 // disable stop button while not recording
 
 stop.disabled = true;
-
+document.getElementById('textingDiv').style.display = 'none';
 // visualiser setup - create web audio api context and canvas
 
 let audioCtx;
@@ -29,6 +32,7 @@ if (navigator.mediaDevices.getUserMedia) {
     visualize(stream);
 
     record.onclick = function() {
+      tipo = 'voice';
       mediaRecorder.start();
       console.log(mediaRecorder.state);
       console.log("recorder started");
@@ -38,17 +42,75 @@ if (navigator.mediaDevices.getUserMedia) {
       record.disabled = true;
     }
 
-    stop.onclick = function() {
-      mediaRecorder.stop();
-      console.log(mediaRecorder.state);
-      console.log("recorder stopped");
-      record.style.background = "";
-      record.style.color = "";
-      // mediaRecorder.requestData();
+    texting.onclick = function() {
+      tipo = 'texto';
+      console.log("texting started");
+      texting.style.background = "red";
+      stop.disabled = false;
+      record.disabled = true;
+      document.getElementById('textingDiv').style.display = 'block';
+    }
 
+    stop.onclick = function() {
+      if(tipo == 'voice'){
+          mediaRecorder.stop();
+          console.log(mediaRecorder.state);
+          console.log("recorder stopped");
+          record.style.background = "";
+          record.style.color = "";
+          }
+          else
+           {
+              console.log("TTS iniciado");
+              record.style.background = "";
+              record.style.color = "";
+
+              if(document.getElementById("textingTXT").value.trim() == ''){
+                    alert("O texto para conversão em voz está vazio. Preencha o campo com algumas palavras.");
+                  }else{
+                        var xhr=new XMLHttpRequest();
+                        xhr.open("POST","/text",true);
+                        xhr.responseType = 'blob';
+                        xhr.onload = function(evt) {
+                              const clipContainer = document.createElement('article');
+                              const clipLabel = document.createElement('p');
+                              const audio = document.createElement('audio');
+                              const deleteButton = document.createElement('button');
+                              clipContainer.classList.add('clip');
+                              audio.setAttribute('controls', '');
+                              deleteButton.textContent = 'Delete';
+                              deleteButton.className = 'delete';
+                              clipLabel.textContent = 'Resposta de Voz';
+                              clipContainer.appendChild(audio);
+                              clipContainer.appendChild(clipLabel);
+                              clipContainer.appendChild(deleteButton);
+                              soundClips.appendChild(clipContainer);
+                              audio.controls = true;
+                              var blob = new Blob([xhr.response], {type: 'audio/webm; codecs=opus'});
+                              var objectUrl = URL.createObjectURL(blob);
+                              audio.src = objectUrl;
+                              // Release resource when it's loaded
+                              audio.onload = function(evt) {
+                                URL.revokeObjectURL(objectUrl);
+                              };
+                              deleteButton.onclick = function(e) {
+                                                        let evtTgt = e.target;
+                                                        evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+                              }
+                             stop.disabled = true;
+                             record.disabled = false;
+                             console.log("TTS finalizado");
+                            };
+                        var fd=new FormData();
+                        fd.append("text", document.getElementById("textingTXT").value.trim());
+                        xhr.send(fd);
+                  }
+           }
+
+      }
+      // mediaRecorder.requestData();
       stop.disabled = true;
       record.disabled = false;
-    }
 
     mediaRecorder.onstop = function(e) {
       console.log("data available after MediaRecorder.stop() called.");
@@ -114,7 +176,6 @@ if (navigator.mediaDevices.getUserMedia) {
                   divNova.appendChild(linebreak);
                   divNova.appendChild(confidence);
                   confidence.appendChild(document.createTextNode(`Confiança: ${obj.confidence}`));
-
               }
           };
           var fd=new FormData();
@@ -209,6 +270,10 @@ function visualize(stream) {
 
 window.onresize = function() {
   canvas.width = mainSection.offsetWidth;
+}
+
+String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g,"");
 }
 
 window.onresize();

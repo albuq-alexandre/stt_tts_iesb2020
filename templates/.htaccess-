@@ -1,4 +1,5 @@
-AddType application/x-web-app-manifest+json .webapp
+ 9u
+  ju5 1 AddType application/x-web-app-manifest+json .webapp
 
 AddType video/ogg .ogv
 AddType video/mp4 .mp4
