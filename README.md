@@ -1,50 +1,59 @@
 # stt_tts_iesb2020
 STT &amp; TTS Python school project IBM Cloud
 
+![Badge](https://img.shields.io/badge/license-MIT-green) 
+![Badge](https://img.shields.io/badge/python-v3.8-blue)
+![Badge](https://img.shields.io/badge/flask-v1.1.2-blue)
+![Badge](https://img.shields.io/badge/ibm_watson-v5.2.2-blue)
+![Badge](https://img.shields.io/badge/ibm_cloud_sdk_core-v3.10.1-blue)
+![Badge](https://img.shields.io/badge/browser-Chrome-red)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/stt-tts-iesb2020-acl)](https://stt-tts-iesb2020-acl.herokuapp.com)
+
+
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Sobre](#Sobre)
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Instalação](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+   * [Tests](#testes)
+   * [Tecnologias](#tecnologias)
+<!--te-->
+
+
 ## Disciplina: P8902-IANA-Computação Cognitiva 2 Interface do usuário baseada em voz
 ### Professor: Rafael Brasileiro de Araujo
 ### Alunos:
-    1. Fábio Tranzillo Nogueira
-    2. Guilherme Augusto das Chagas Praser
-    3. Marcelo Caldeira Pereira
-### Sobre o aplicativo (Text-to-speech and speech-to-text converter):
-    Foi desenvolvido um aplcativo contendo 03 funções básicas, conforme seguem:
+    1. Alexandre de Sousa Albuquerque
+    2. Celso de Melo
+    3. Juliano Ortigoso Gaspar
+    
+### Sobre o aplicativo:
 
-    1. Conversão de texto para fala: Nesse caso é necessário informar o autenticador IBM watson para realizar a gera-
-       ção do audio. Caso não seja informado um TEXTO, será gerado um aúdio com o texto padrão (Texto não informado).
-       Todo audio gerado posuirá o nome "audio.wav" e será gravado na pasta de instalação da aplicação.
-       O PLAY do audio gerado será iniciado no momento da sua geração, caso seja assinalado o "check: Play Audio".
-       O "check: Play Audio" é opcional.
+   O *IBM Cloud STT/TTS - Interface para processamento de Áudio e Texto*, é constituído pelos seguintes componentes:
 
-    2. Conversão de fala para texto: Nesse caso é necessário informar o autenticador IBM watson para START de captura
-    de voz. É opcional o assinalamento do "check: Verbose Processing", caso o mesmo seja assinalado  o  processamento
-    irá apresentar resultados itermediários, caso contrário, somete apresentará o resultado final. Enquanto  não  for
-    realizado STOP o canal para captura de voz estará aberto, sendo possível a utilização de qualquer outra  funciona-
-    lidade em paralelo.
+• O [Navigator.getUserMedia()](https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia) é um método de captura de mídias e áudios mediante uma solicitação de permissão ao usuário para usar um dispositivo de entrada de vídeo (câmera ou tela compartilhada) e de áudio (microfone) como a fonte de um MediaStream.
 
-    3. Tocador de audio (wav): Nesse caso será solicitado a identificação do arquivo de audio, por meio de navegador
-    (BROWSE) apresentado na própria aplicação. Após a identificação, sua reprodução será executada após o  click  no
-    botão OK.
+•	A [API MediaStream Recording](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API) é uma API de gravação MediaStream que torna possível capturar os dados gerados por um objeto MediaStream ou HTMLMediaElement para a análise, o processamento ou o salvamento em disco.
 
-    OBS: Em toda aplicação é apresentada uma SYSOUT demonstrando toda execução que vislubramos como importante nesse
-    momento de apredizado.
+•	O [Watson Speech to Text (STT)](https://www.ibm.com/br-pt/cloud/watson-speech-to-text) é um serviço de cloud que possibilita a realização de transcrição de áudio em aplicativos por meio de uma API. Com o Watson Speech to Text (STT) é possível converter áudio em texto em mais de 15 idiomas incluindo Português, Inglês, Espanhol e Mandarim, que podem ser utilizados em diferentes cenários como em chatbots automatizados com opção de voz, ferramentas de análise para dados de call-centers e transcrições multimídia.
 
-###### Dicas para instalação do PyAudio
+•	O [Watson Text to Speech (TTS)](https://www.ibm.com/br-pt/cloud/watson-text-to-speech) pode sintetizar texto em áudios de diferentes formatos, pode produzir vozes masculinas e femininas em diferentes idiomas e dialetos. Oferece vozes neuronais concatenativas e melhoradas. O potencial do SSML se estende para permitir o controle da entonação da expressão e para proporcionar capacidades de transformação de voz que podem ampliar a gama de vozes, controlando aspectos como o tom, a velocidade e o timbre.
 
-    1. Encontrar a versão do Python e verificar o se o mesmo é 64 ou 32:
-        1.1 python --version ou
-        1.2 python
-    2. encontre o arquivo .whl apropriado. Pesquisar em: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
-        OBS: No meu caso foi o: PyAudio-0.2.11-cp38-cp38-win_amd64.whl
-    3. Exutar arquivo localizado no item 2: pip install PyAudio-0.2.11-cp38-cp38-win_amd64.whl 
-    4. Executar:
-        pip install pipwin
-        pipwin install pyaudio
+•	O osciloscópio, cortesia da [Sole](http://soledadpenades.com/).
 
-###### Outras instalações necessárias:
-    1. !pip install pysimplegui
-    2. !pip install simpleaudio
-    3. !pip install ibm_watson
+•	Os ícones, cortesia do Find [Icons](http://findicons.com/search/microphone).
 
-    OBS: Caso ocorra erro no ubunto na instalação do simpleaudio, excutar o seguinte comando:
-        sudo apt-get install libasound2-dev
+###### Instalação local
+
+    pip install -r requirements.txt
+
+##### Run app
+
+    python app.py runserver 0.0.0.0:5000
