@@ -14,14 +14,14 @@ STT &amp; TTS Python/Flask/Js School Project using IBM Cloud
 <!--ts-->  Tabela de Conteúdo:
  * [Identificação](#stt_tts_iesb2020)  
  * [Autores](#disciplina)    
- * [Sobre](#Sobre)    
- * [Instalação](#Instalação-local)  
- * [Como Usar](#Como-Usar)  
+ * [Sobre](#sobre)    
+ * [Instalação](#instalação-local)  
+ * [Como Usar](#como-usar)  
  * [Requisitos](#pré-requisitos)  
  * [Gravar](#gravar)  
- * [Digitar](#digitar)  
-  
- * [Tecnologias](#tecnologias)  
+ * [Digitar](#digitar)
+ * [Help](#help)  
+ * [Tecnologias](#tecnologias)
 <!--te-->  
   
   
@@ -30,9 +30,9 @@ STT &amp; TTS Python/Flask/Js School Project using IBM Cloud
 > *P8902-IANA-Computação Cognitiva 2 - Interface do usuário baseada em voz*  
 >**Professor**: Rafael Brasileiro de Araujo  
 ###  Alunos  
->  **Alexandre de Sousa Albuquerque** 
->  **Celso de Melo** 
->  **Juliano Ortigoso Gaspar**
+>- **Alexandre de Sousa Albuquerque**
+>- **Celso de Melo**
+>- **Juliano Ortigoso Gaspar**
 
 ## Sobre  
   
@@ -91,6 +91,11 @@ O aplicativo está disponível no seguinte endereço:
 >  3. Clique no botão "Converter em voz" para obter o áudio;
 >  4. Ouça o novo áudio que apareceu na tela para habilitar o menu download.
 
-### Botão ?
+### Help
 
 >  1. Clique no botão "?" no canto superior direito para ler "Sobre" o aplicativo.
+
+### Tecnologias
+
+>  Esse projeto usa Python, Flask e Javascript para integrar as API's citadas no tópico "Sobre". 
+>  Usa o PaaS Heroku para publicação do app na web.
