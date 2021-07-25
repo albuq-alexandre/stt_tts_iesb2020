@@ -24,20 +24,16 @@ def favicon():
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    i = 0
     if request.method == "POST":
         f = request.files['audio_data']
-        with open(f'audio{i}.webm', 'wb') as audio:
-            res = speech_to_text.recognize(audio=f,
-                                           content_type="audio/webm; codecs=opus",
-                                           model='pt-BR_BroadbandModel',
-                                           continuous=True).get_result()
-            print(json.dumps(res, indent=2))
-            f.save(audio)
-            i+=1
-            print('file uploaded successfully')
-            retorno = res['results'][0]['alternatives'][0]
-            print('******************************\n', retorno)
+        res = speech_to_text.recognize(audio=f,
+                                       content_type="audio/webm; codecs=opus",
+                                       model='pt-BR_BroadbandModel',
+                                       continuous=True).get_result()
+        print(json.dumps(res, indent=2))
+        print('file uploaded successfully')
+        retorno = res['results'][0]['alternatives'][0]
+        print('******************************\n', retorno)
         return json.dumps(retorno)
     else:
         return render_template("index.html")
