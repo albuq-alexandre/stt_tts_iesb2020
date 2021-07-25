@@ -71,19 +71,27 @@ if (navigator.mediaDevices.getUserMedia) {
     }
 
     stop.onclick = function() {
-
+      stop.innerText = stop.textContent = "Processando...";
+      stop.disabled=true;
       if(tipo == 'voice'){
           mediaRecorder.stop();
           console.log(mediaRecorder.state);
           console.log("recorder stopped");
-
+          record.style.background = "#0088cc";
+          stop.style.background = "gainsboro";
+          stop.innerText = stop.textContent = "Converter em Texto ou Voz";
+          stop.disabled = true;
+          record.disabled = false;
+          texting.disabled = false;
+          texting.style.background = "#0088cc";
+          canvasColor = 'rgba(200, 200, 200, 1)';
+          canvasLineColor = 'rgba(0, 0, 0, 1)'
+          canvas.style.display = "block"
+          textingDiv.style.display = 'none';
           }
           else
            {
               console.log("TTS iniciado");
-              record.style.background = "";
-              record.style.color = "";
-
               if(document.getElementById("textingTXT").value.trim() == ''){
                     alert("O texto para conversão em voz está vazio. Preencha o campo com algumas palavras.");
                   }else{
@@ -105,7 +113,7 @@ if (navigator.mediaDevices.getUserMedia) {
                               clipContainer.appendChild(deleteButton);
                               soundClips.appendChild(clipContainer);
                               audio.controls = true;
-                              var blob = new Blob([xhr.response], {type: 'audio/webm; codecs=opus'});
+                              var blob = new Blob([xhr.response], {type: 'audio/ogg'});
                               var objectUrl = URL.createObjectURL(blob);
                               audio.src = objectUrl;
                               // Release resource when it's loaded
@@ -116,26 +124,25 @@ if (navigator.mediaDevices.getUserMedia) {
                                                         let evtTgt = e.target;
                                                         evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
                               }
-                             stop.disabled = true;
-                             record.disabled = false;
-                             console.log("TTS finalizado");
+                              record.style.background = "#0088cc";
+                              stop.style.background = "gainsboro";
+                              stop.innerText = stop.textContent = "Converter em Texto ou Voz";
+                              stop.disabled = true;
+                              record.disabled = false;
+                              texting.disabled = false;
+                              texting.style.background = "#0088cc";
+                              canvasColor = 'rgba(200, 200, 200, 1)';
+                              canvasLineColor = 'rgba(0, 0, 0, 1)'
+                              canvas.style.display = "block"
+                              textingDiv.style.display = 'none';
+                              console.log("TTS finalizado");
                             };
                         var fd=new FormData();
                         fd.append("text", document.getElementById("textingTXT").value.trim());
                         xhr.send(fd);
                   }
            }
-      record.style.background = "#0088cc";
-      stop.style.background = "gainsboro";
-      stop.innerText = stop.textContent = "Converter em Texto ou Voz";
-      stop.disabled = true;
-      record.disabled = false;
-      texting.disabled = false;
-      texting.style.background = "#0088cc";
-      canvasColor = 'rgba(200, 200, 200, 1)';
-      canvasLineColor = 'rgba(0, 0, 0, 1)'
-      canvas.style.display = "block"
-      textingDiv.style.display = 'none';
+
       }
       // mediaRecorder.requestData();
 
@@ -178,7 +185,7 @@ if (navigator.mediaDevices.getUserMedia) {
       soundClips.appendChild(clipContainer);
 
       audio.controls = true;
-      const blob = new Blob(chunks, { 'type' : "audio/webm; codecs=opus" });
+      const blob = new Blob(chunks, { 'type' : "audio/ogg" });
       chunks = [];
       const audioURL = window.URL.createObjectURL(blob);
       audio.src = audioURL;

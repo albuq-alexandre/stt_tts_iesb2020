@@ -27,7 +27,7 @@ def index():
     if request.method == "POST":
         f = request.files['audio_data']
         res = speech_to_text.recognize(audio=f,
-                                       content_type="audio/webm; codecs=opus",
+                                       content_type="audio/ogg",
                                        model='pt-BR_BroadbandModel',
                                        continuous=True).get_result()
         print(json.dumps(res, indent=2))
@@ -44,7 +44,7 @@ def text():
     if request.method == "POST":
         content = tts.synthesize(request.values['text'],
                                  voice='pt-BR_IsabelaV3Voice',
-                                 accept="audio/webm; codecs=opus")\
+                                 accept="audio/ogg")\
                                 .get_result().content
     return content
 
