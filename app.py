@@ -27,7 +27,7 @@ def index():
     if request.method == "POST":
         f = request.files['audio_data']
         res = speech_to_text.recognize(audio=f,
-                                       content_type="audio/ogg",
+                                       content_type="audio/webm; codecs=opus",
                                        model='pt-BR_BroadbandModel',
                                        continuous=True).get_result()
         print(json.dumps(res, indent=2))

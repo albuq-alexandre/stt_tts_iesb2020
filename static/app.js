@@ -150,7 +150,7 @@ if (navigator.mediaDevices.getUserMedia) {
       console.log("data available after MediaRecorder.stop() called.");
 
       const clipName = prompt('Entre com o nome da gravação:','Gravação 1');
-      const filename = clipName.concat('.oga')
+      const filename = clipName.concat('.webm')
 
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
@@ -185,7 +185,7 @@ if (navigator.mediaDevices.getUserMedia) {
       soundClips.appendChild(clipContainer);
 
       audio.controls = true;
-      const blob = new Blob(chunks, { 'type' : "audio/ogg" });
+      const blob = new Blob(chunks, { 'type' : "audio/webm; codecs=opus" });
       chunks = [];
       const audioURL = window.URL.createObjectURL(blob);
       audio.src = audioURL;
