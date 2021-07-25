@@ -1,31 +1,22 @@
 {
-  "version": "0.1",
-  "name": "Web dictaphone",
-  "description": "A sample MDN app that uses getUserMedia and MediaRecorder API for recording audio snippets, and The Web Audio API for visualizations.",
+  "version": "1.0",
+  "name": "ACJ Web STT-TTS interface",
+  "description": "A sample MDN app that uses getUserMedia, MediaRecorder, IBM Cloud STT and TTS API's for recording and convert audio snippets, and The Web Audio API for visualizations.",
   "launch_path": "/index.html",
   "icons": {
     "60": "app-icons/icon-60.png",
     "128": "app-icons/icon-128.png"
   },
   "developer": {
-    "name": "Chris Mills",
-    "url": "https://developer.mozila.org"
+    "name": "Alexandre Albuquerque",
+    "url": "https://github.com/albuq-alexandre"
   },
   "locales": {
-    "es": {
-      "description": "A sample MDN app that uses getUserMedia and MediaRecorder API for recording audio snippets, and The Web Audio API for visualizations.",
-      "developer": {
-        "url": "https://developer.mozila.org"
-      }
-    },
-    "it": {
-      "description": "A sample MDN app that uses getUserMedia and MediaRecorder API for recording audio snippets, and The Web Audio API for visualizations.",
-      "developer": {
-        "url": "https://developer.mozila.org"
-      }
-    }
+    "pt-br": {
+      "description": "Um app de exemplo que usa getUserMedia, MediaRecorder, IBM Cloud STT and TTS API's para gravar trechos de audio e trasncrevê-los, e também The Web Audio API para visualização.",
+      },
   },
-  "default_locale": "en",
+  "default_locale": "pt-br",
   "permissions": {
     "audio-capture": {
       "description": "Required to capture audio via getUserMedia"

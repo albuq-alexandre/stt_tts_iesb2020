@@ -176,6 +176,9 @@ aside p {
 aside a {
   color: #666;
 }
+aside txtaside {
+font-size: 1.5rem;
+}
 
 /* Toggled State of information box */
 input[type=checkbox]:checked ~ aside {
@@ -198,4 +201,6 @@ input[type=checkbox]:checked ~ aside {
     margin: 0 auto;
   }
 }
-
+aside txtaside {
+font-size: 1.5rem;
+}

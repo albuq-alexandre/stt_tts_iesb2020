@@ -1,132 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>IESB - Pós IA - Turma IANA2020 - Interfaces para processamento de Áudio e Texto</title>
     <link href="/static/styles/app.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="wrapper">
+<div class="wrapper">
 
-      <header>
+    <header>
         <h1>IBM Cloud STT/TTS - Interface para processamento de Áudio e Texto</h1>
-      </header>
+    </header>
 
-      <section class="main-controls">
+    <section class="main-controls">
         <div id="canvasDiv">
-        <canvas class="visualizer" height="60px"></canvas>
+            <canvas class="visualizer" height="120px"></canvas>
         </div>
         <div id="textingDiv">
-           <label for="textingTXT" id="txtLabel">Texto para conversão em Voz:</label><br>
-          <textarea id="textingTXT" placeholder="Lembre-se, seja gentil!" width=100% rows="5"></textarea>
+            <label for="textingTXT" id="txtLabel">Texto para conversão em Voz:</label><br>
+            <textarea id="textingTXT" placeholder="Lembre-se, seja gentil!" width=100% rows="5"></textarea>
         </div>
         <div id="buttons">
-          <button class="record">Gravar</button>
-          &nbsp;
-          <button class="texting">Digitar</button>
-          &nbsp;
-          <button class="stop">Converter em Texto ou Voz</button>
+            <button class="record">Gravar</button>
+            &nbsp;
+            <button class="texting">Digitar</button>
+            &nbsp;
+            <button class="stop">Converter em Texto ou Voz</button>
         </div>
 
-      </section>
+    </section>
 
-      <section class="sound-clips">
+    <section class="sound-clips">
 
 
-      </section>
-
-    </div>
-
-    <label for="toggle" class="toggle">❔</label>
-    <input type="checkbox" id="toggle">
-    <aside>
-      <h2>Informações e Créditos</h2>
-
-<div class=WordSection1>
-
-<p class=MsoNormal style='text-align:justify'><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal style='text-align:justify'>O <b>IBM Cloud STT/TTS -
-Interface para processamento de Áudio e Texto</b>, é constituído pelos seguintes
-componentes:<o:p></o:p></p>
-
-<p class=MsoListParagraphCxSpFirst style='text-align:justify;text-indent:-18.0pt;
-mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol;
-mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
-style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>O <a
-href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia"><span
-class=SpellE><b>Navigator.getUserMedia</b></span><b>()</b></a> é um método de
-captura de mídias e áudios mediante uma solicitação de permissão ao usuário
-para usar um dispositivo de entrada de vídeo (câmera ou tela compartilhada) e
-de áudio (microfone) como a fonte de um <span class=SpellE>MediaStream</span>.<o:p></o:p></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-18.0pt;
-mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol;
-mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
-style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>A <a
-href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API"><b>API
-<span class=SpellE>MediaStream</span> <span class=SpellE>Recording</span></b></a>
-é uma API de gravação <span class=SpellE>MediaStream</span> que torna possível
-capturar os dados gerados por um objeto <span class=SpellE>MediaStream</span>
-ou <span class=SpellE>HTMLMediaElement</span> para a análise, o processamento
-ou o salvamento em disco.<o:p></o:p></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-18.0pt;
-mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol;
-mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
-style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>O <a
-href="https://www.ibm.com/br-pt/cloud/watson-speech-to-text"><b>Watson Speech <span
-class=SpellE>to</span> <span class=SpellE>Text</span> (STT)</b></a> é um
-serviço de cloud que possibilita a realização de transcrição de áudio em
-aplicativos por meio de uma API. Com o Watson Speech <span class=SpellE>to</span>
-<span class=SpellE>Text</span> (STT) é possível converter áudio em texto em
-mais de 15 idiomas incluindo Português, Inglês, Espanhol e Mandarim, que podem
-ser utilizados em diferentes cenários como em <span class=SpellE>chatbots</span>
-automatizados com opção de voz, ferramentas de análise para dados de <span
-class=SpellE>call</span>-centers e transcrições multimídia.<o:p></o:p></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-18.0pt;
-mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol;
-mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
-style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>O <a
-href="https://www.ibm.com/br-pt/cloud/watson-text-to-speech"><b>Watson <span
-class=SpellE>Text</span> <span class=SpellE>to</span> Speech (TTS)</b></a> pode
-sintetizar texto em áudios de diferentes formatos, pode produzir vozes
-masculinas e femininas em diferentes idiomas e dialetos. Oferece vozes
-neuronais <span class=SpellE>concatenativas</span> e melhoradas. O potencial do
-SSML se estende para permitir o controle da entonação da expressão e para
-proporcionar capacidades de transformação de voz que podem ampliar a gama de
-vozes, controlando aspectos como o tom, a velocidade e o timbre.<o:p></o:p></p>
-
-<p class=MsoListParagraphCxSpMiddle style='text-align:justify;text-indent:-18.0pt;
-mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol;
-mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
-style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>O osciloscópio, cortesia da <a
-href="http://soledadpenades.com/"><b>Sole</b></a>.<o:p></o:p></p>
-
-<p class=MsoListParagraphCxSpLast style='text-align:justify;text-indent:-18.0pt;
-mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol;
-mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
-style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>Os ícones, cortesia do <a
-href="http://findicons.com/search/microphone"><span class=SpellE><b>Find</b></span><b>
-<span class=SpellE>Icons</span></b></a>.<o:p></o:p></p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
-  <p class=MsoNormal><o:p>Veja o código fonte em <a href="https://github.com/albuq-alexandre/stt_tts_iesb2020"><b>Github repo</b></a></o:p></p>
+    </section>
 
 </div>
 
-    </aside>
-    <script src="static/app.js"></script>
+<label for="toggle" class="toggle">❔</label>
+<input type="checkbox" id="toggle">
+<aside>
+    <h2 style="padding-left: 60px;"><strong>Informa&ccedil;&otilde;es e Cr&eacute;ditos</strong></h2>
+    <p>&nbsp;</p>
+    <p style="padding-left: 30px;">O IBM Cloud STT/TTS - Interface para processamento de &Aacute;udio e Texto, &eacute;
+        constitu&iacute;do pelos seguintes componentes:</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;"><strong><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia" target="_blank">Navigator.getUserMedia()</a></strong>
+            &eacute; um m&eacute;todo de captura de m&iacute;dias e &aacute;udios de um dispositivo de entrada de v&iacute;deo
+            (c&acirc;mera ou tela compartilhada) e de &aacute;udio (microfone) como a fonte de um MediaStream, mediante
+            uma solicita&ccedil;&atilde;o de permiss&atilde;o do usu&aacute;rio.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;">API <strong><a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API" target="_blank">MediaStream
+            Recording</a></strong>&nbsp;&eacute; uma API de grava&ccedil;&atilde;o que torna poss&iacute;vel capturar os
+            dados gerados por um objeto MediaStream ou HTMLMediaElement para a an&aacute;lise, processamento ou
+            salvamento em disco.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;"><strong><a
+                href="https://www.ibm.com/cloud/watson-speech-to-text" target="_blank">Watson Speech to Text (STT)</a></strong> &eacute;
+            um servi&ccedil;o cloud que possibilita a realiza&ccedil;&atilde;o de transcri&ccedil;&atilde;o de &aacute;udio
+            em aplicativos por meio de uma API. &Eacute; poss&iacute;vel converter &aacute;udio em texto em mais de 15
+            idiomas incluindo Portugu&ecirc;s, Ingl&ecirc;s, Espanhol e Mandarim, que podem ser utilizados em diferentes
+            cen&aacute;rios como em chatbots automatizados com op&ccedil;&atilde;o de voz, ferramentas de an&aacute;lise
+            para dados de call-centers e transcri&ccedil;&otilde;es multim&iacute;dia.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;"><strong><a
+                href="https://www.ibm.com/cloud/watson-text-to-speech" target="_blank">Watson Text to Speech (TTS)</a></strong> pode
+            sintetizar texto em &aacute;udios de diferentes formatos, pode produzir vozes masculinas e femininas em
+            diferentes idiomas e dialetos. Oferece vozes neuronais concatenativas e melhoradas. O potencial do SSML se
+            estende para permitir o controle da entona&ccedil;&atilde;o da express&atilde;o e para proporcionar
+            capacidades de transforma&ccedil;&atilde;o de voz que podem ampliar a gama de vozes, controlando aspectos
+            como o tom, a velocidade e o timbre.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;"><strong>MDN Web-Dictaphone</strong>,
+            <a href="https://github.com/mdn/web-dictaphone" target="_blank">by chrisdavidmills</a></strong>.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;"><strong>Oscilosc&oacute;pio</strong>, cortesia
+            da <strong><a href="http://soledadpenades.com/" target="_blank">Sole</a></strong>.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <ul style="font-size: 1rem;">
+        <li style="margin: 0 0 0 40px; border: none; padding: 0px;"><strong>&Iacute;cones</strong>, cortesia do <a
+                href="http://findicons.com/search/microphone" target="_blank"><strong>Find&nbsp;Icons</strong></a>.
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p style="padding-left: 30px; font-size: 1.2rem;">Veja o nosso c&oacute;digo fonte no Github:  <a
+            href="https://github.com/albuq-alexandre/stt_tts_iesb2020" target="_blank"><img
+            src="https://img.shields.io/github/last-commit/albuq-alexandre/stt_tts_iesb2020?style=for-the-badge"
+            alt="GitHub Repository Status"/></a></p>
+</aside>
+<script src="static/app.js"></script>
 
-  </body>
+</body>
 </html>

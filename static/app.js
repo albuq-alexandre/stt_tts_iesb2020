@@ -8,14 +8,18 @@ const canvas = document.querySelector('.visualizer');
 const mainSection = document.querySelector('.main-controls');
 const textingTXT = document.querySelector('textingTXT');
 const txtDiv = document.querySelector('.textingDiv');
+const textingDiv = document.getElementById('textingDiv');
 var tipo;
 // disable stop button while not recording
 
 stop.disabled = true;
-document.getElementById('textingDiv').style.display = 'none';
+stop.style.background = "gainsboro";
+textingDiv.style.display = 'none';
 // visualiser setup - create web audio api context and canvas
 
 let audioCtx;
+let canvasColor = 'rgba(200, 200, 200, 1 )'
+let canvasLineColor = 'rgba(0, 0, 0, 1 )'
 const canvasCtx = canvas.getContext("2d");
 
 //main block for doing the audio recording
@@ -36,28 +40,43 @@ if (navigator.mediaDevices.getUserMedia) {
       mediaRecorder.start();
       console.log(mediaRecorder.state);
       console.log("recorder started");
-      record.style.background = "red";
-
+      record.style.background = "rgba(250, 128, 114, 0.3)";
+      stop.style.background = "red";
+      stop.innerText = stop.textContent = "Parar a Gravação";
       stop.disabled = false;
       record.disabled = true;
+      texting.disabled = true;
+      texting.style.background = "gainsboro";
+      textingDiv.style.display = 'none';
+      canvasColor = 'rgba(255, 100, 100, 0.5)';
+      canvasLineColor = 'red'
     }
 
     texting.onclick = function() {
       tipo = 'texto';
       console.log("texting started");
-      texting.style.background = "red";
+      texting.style.background = "rgba(250, 128, 114, 0.3)";
       stop.disabled = false;
+      stop.innerText = stop.textContent = "Converter em Voz"
       record.disabled = true;
       document.getElementById('textingDiv').style.display = 'block';
+      record.style.background = "gainsboro";
+      stop.style.background = "red";
+      record.disabled = true;
+      texting.disabled = true;
+      record.style.background = "gainsboro";
+      canvasColor = 'rgba(250, 250, 250, 0.5)';
+      canvasLineColor = 'rgba(200, 200, 200, 0.5 )';
+
     }
 
     stop.onclick = function() {
+
       if(tipo == 'voice'){
           mediaRecorder.stop();
           console.log(mediaRecorder.state);
           console.log("recorder stopped");
-          record.style.background = "";
-          record.style.color = "";
+
           }
           else
            {
@@ -80,7 +99,7 @@ if (navigator.mediaDevices.getUserMedia) {
                               audio.setAttribute('controls', '');
                               deleteButton.textContent = 'Delete';
                               deleteButton.className = 'delete';
-                              clipLabel.textContent = 'Resposta de Voz';
+                              clipLabel.textContent = 'Resposta de Voz - IBM Cloud - IsabelaV3';
                               clipContainer.appendChild(audio);
                               clipContainer.appendChild(clipLabel);
                               clipContainer.appendChild(deleteButton);
@@ -106,11 +125,19 @@ if (navigator.mediaDevices.getUserMedia) {
                         xhr.send(fd);
                   }
            }
-
-      }
-      // mediaRecorder.requestData();
+      record.style.background = "#0088cc";
+      stop.style.background = "gainsboro";
+      stop.innerText = stop.textContent = "Converter em Texto ou Voz";
       stop.disabled = true;
       record.disabled = false;
+      texting.disabled = false;
+      texting.style.background = "#0088cc";
+      canvasColor = 'rgba(200, 200, 200, 1)';
+      canvasLineColor = 'rgba(0, 0, 0, 1)'
+      canvas.style.display = "block"
+      textingDiv.style.display = 'none';
+      }
+      // mediaRecorder.requestData();
 
     mediaRecorder.onstop = function(e) {
       console.log("data available after MediaRecorder.stop() called.");
@@ -236,11 +263,11 @@ function visualize(stream) {
 
     analyser.getByteTimeDomainData(dataArray);
 
-    canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+    canvasCtx.fillStyle = canvasColor;
     canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
     canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+    canvasCtx.strokeStyle = canvasLineColor;
 
     canvasCtx.beginPath();
 
@@ -250,7 +277,7 @@ function visualize(stream) {
 
     for(let i = 0; i < bufferLength; i++) {
 
-      let v = dataArray[i] / 128.0;
+      let v = dataArray[i] / 128 ;
       let y = v * HEIGHT/2;
 
       if(i === 0) {
@@ -266,6 +293,13 @@ function visualize(stream) {
     canvasCtx.stroke();
 
   }
+}
+
+function resetButtons(){
+document.getElementById('textingDiv').style.display = 'none';
+record.style.background = "red";
+stop.disabled = true;
+record.disabled = false;
 }
 
 window.onresize = function() {
